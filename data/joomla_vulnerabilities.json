@@ -1,0 +1,292 @@
+{
+    "core": {
+        "3.4.5": [
+            {
+                "id": "CVE-2015-8562",
+                "name": "Joomla 1.5.0-3.4.5 - Object Injection RCE",
+                "description": "Joomla versions 1.5.0 through 3.4.5 are vulnerable to a PHP object injection vulnerability leading to remote code execution.",
+                "severity": "critical",
+                "impact": "An unauthenticated attacker can execute arbitrary code on the server.",
+                "recommendation": "Update Joomla to version 3.4.6 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2015-8562",
+                    "https://developer.joomla.org/security-centre/628-20151214-core-remote-code-execution-vulnerability.html"
+                ]
+            }
+        ],
+        "3.6.3": [
+            {
+                "id": "CVE-2016-8870",
+                "name": "Joomla 3.4.4-3.6.3 - Account Creation Vulnerability",
+                "description": "Joomla versions 3.4.4 through 3.6.3 are vulnerable to an account creation vulnerability.",
+                "severity": "high",
+                "impact": "An unauthenticated attacker can create accounts with elevated privileges on the site.",
+                "recommendation": "Update Joomla to version 3.6.4 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2016-8870",
+                    "https://developer.joomla.org/security-centre/660-20161002-core-account-creation.html"
+                ]
+            }
+        ],
+        "3.7.0": [
+            {
+                "id": "CVE-2017-8917",
+                "name": "Joomla 3.7.0 - SQL Injection",
+                "description": "Joomla version 3.7.0 is vulnerable to a SQL injection vulnerability in the com_fields component.",
+                "severity": "critical",
+                "impact": "An unauthenticated attacker can execute arbitrary SQL queries, potentially leading to database access or modification.",
+                "recommendation": "Update Joomla to version 3.7.1 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2017-8917",
+                    "https://developer.joomla.org/security-centre/688-20170501-core-sql-injection.html"
+                ]
+            }
+        ],
+        "3.8.3": [
+            {
+                "id": "CVE-2018-6376",
+                "name": "Joomla 3.7.0-3.8.3 - Arbitrary File Delete",
+                "description": "Joomla versions 3.7.0 through 3.8.3 are vulnerable to an arbitrary file deletion vulnerability.",
+                "severity": "high",
+                "impact": "An authenticated attacker with admin privileges can delete arbitrary files on the server.",
+                "recommendation": "Update Joomla to version 3.8.4 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2018-6376",
+                    "https://developer.joomla.org/security-centre/710-20180102-core-arbitrary-file-deletion.html"
+                ]
+            }
+        ],
+        "3.9.4": [
+            {
+                "id": "CVE-2019-9713",
+                "name": "Joomla 3.0.0-3.9.4 - Directory Traversal",
+                "description": "Joomla versions 3.0.0 through 3.9.4 are vulnerable to a directory traversal vulnerability in the Media Manager component.",
+                "severity": "high",
+                "impact": "An authenticated attacker with admin privileges can access files outside the intended directory.",
+                "recommendation": "Update Joomla to version 3.9.5 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2019-9713",
+                    "https://developer.joomla.org/security-centre/751-20190312-core-directory-traversal.html"
+                ]
+            }
+        ],
+        "3.9.19": [
+            {
+                "id": "CVE-2020-11890",
+                "name": "Joomla 3.0.0-3.9.19 - Improper Input Validation",
+                "description": "Joomla versions 3.0.0 through 3.9.19 are vulnerable to an improper input validation vulnerability.",
+                "severity": "critical",
+                "impact": "An unauthenticated attacker can execute arbitrary code on the server.",
+                "recommendation": "Update Joomla to version 3.9.20 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2020-11890",
+                    "https://developer.joomla.org/security-centre/803-20200501-core-improper-input-validation.html"
+                ]
+            }
+        ],
+        "3.10.0": [
+            {
+                "id": "CVE-2021-23132",
+                "name": "Joomla 3.0.0-3.10.0 - Weak Password Reset",
+                "description": "Joomla versions 3.0.0 through 3.10.0 are vulnerable to a weak password reset mechanism.",
+                "severity": "medium",
+                "impact": "An attacker can potentially reset user passwords due to insufficient entropy in the reset tokens.",
+                "recommendation": "Update Joomla to version 3.10.1 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2021-23132",
+                    "https://developer.joomla.org/security-centre/830-20210501-core-weak-password-reset.html"
+                ]
+            }
+        ],
+        "4.0.3": [
+            {
+                "id": "CVE-2021-41174",
+                "name": "Joomla 4.0.0-4.0.3 - XSS in Media Manager",
+                "description": "Joomla versions 4.0.0 through 4.0.3 are vulnerable to a cross-site scripting vulnerability in the Media Manager component.",
+                "severity": "medium",
+                "impact": "An authenticated attacker can inject malicious JavaScript that would execute when an admin accesses the Media Manager.",
+                "recommendation": "Update Joomla to version 4.0.4 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2021-41174",
+                    "https://developer.joomla.org/security-centre/847-20211001-core-xss-in-media-manager.html"
+                ]
+            }
+        ],
+        "4.1.1": [
+            {
+                "id": "CVE-2022-21702",
+                "name": "Joomla 4.0.0-4.1.1 - CSRF in User Management",
+                "description": "Joomla versions 4.0.0 through 4.1.1 are vulnerable to a cross-site request forgery vulnerability in the user management component.",
+                "severity": "medium",
+                "impact": "An attacker can trick an admin into performing unintended actions on the user management interface.",
+                "recommendation": "Update Joomla to version 4.1.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2022-21702",
+                    "https://developer.joomla.org/security-centre/860-20220301-core-csrf-in-user-management.html"
+                ]
+            }
+        ]
+    },
+    "components": {
+        "com_contact": {
+            "3.5.1": [
+                {
+                    "id": "CVE-2016-8838",
+                    "name": "Joomla com_contact <= 3.5.1 - SQL Injection",
+                    "description": "The com_contact component in Joomla versions up to 3.5.1 is vulnerable to a SQL injection vulnerability.",
+                    "severity": "high",
+                    "impact": "An unauthenticated attacker can execute arbitrary SQL queries, potentially leading to database access or modification.",
+                    "recommendation": "Update Joomla to version 3.6.0 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2016-8838",
+                        "https://developer.joomla.org/security-centre/654-20160922-core-sql-injection.html"
+                    ]
+                }
+            ]
+        },
+        "com_fields": {
+            "3.7.0": [
+                {
+                    "id": "CVE-2017-8917",
+                    "name": "Joomla com_fields 3.7.0 - SQL Injection",
+                    "description": "The com_fields component in Joomla version 3.7.0 is vulnerable to a SQL injection vulnerability.",
+                    "severity": "critical",
+                    "impact": "An unauthenticated attacker can execute arbitrary SQL queries, potentially leading to database access or modification.",
+                    "recommendation": "Update Joomla to version 3.7.1 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2017-8917",
+                        "https://developer.joomla.org/security-centre/688-20170501-core-sql-injection.html"
+                    ]
+                }
+            ]
+        },
+        "com_media": {
+            "3.9.4": [
+                {
+                    "id": "CVE-2019-9713",
+                    "name": "Joomla com_media <= 3.9.4 - Directory Traversal",
+                    "description": "The com_media component in Joomla versions up to 3.9.4 is vulnerable to a directory traversal vulnerability.",
+                    "severity": "high",
+                    "impact": "An authenticated attacker with admin privileges can access files outside the intended directory.",
+                    "recommendation": "Update Joomla to version 3.9.5 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2019-9713",
+                        "https://developer.joomla.org/security-centre/751-20190312-core-directory-traversal.html"
+                    ]
+                }
+            ],
+            "4.0.3": [
+                {
+                    "id": "CVE-2021-41174",
+                    "name": "Joomla com_media 4.0.0-4.0.3 - XSS",
+                    "description": "The com_media component in Joomla versions 4.0.0 through 4.0.3 is vulnerable to a cross-site scripting vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when an admin accesses the Media Manager.",
+                    "recommendation": "Update Joomla to version 4.0.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-41174",
+                        "https://developer.joomla.org/security-centre/847-20211001-core-xss-in-media-manager.html"
+                    ]
+                }
+            ]
+        },
+        "com_users": {
+            "3.6.3": [
+                {
+                    "id": "CVE-2016-8870",
+                    "name": "Joomla com_users 3.4.4-3.6.3 - Account Creation",
+                    "description": "The com_users component in Joomla versions 3.4.4 through 3.6.3 is vulnerable to an account creation vulnerability.",
+                    "severity": "high",
+                    "impact": "An unauthenticated attacker can create accounts with elevated privileges on the site.",
+                    "recommendation": "Update Joomla to version 3.6.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2016-8870",
+                        "https://developer.joomla.org/security-centre/660-20161002-core-account-creation.html"
+                    ]
+                }
+            ],
+            "4.1.1": [
+                {
+                    "id": "CVE-2022-21702",
+                    "name": "Joomla com_users 4.0.0-4.1.1 - CSRF",
+                    "description": "The com_users component in Joomla versions 4.0.0 through 4.1.1 is vulnerable to a cross-site request forgery vulnerability.",
+                    "severity": "medium",
+                    "impact": "An attacker can trick an admin into performing unintended actions on the user management interface.",
+                    "recommendation": "Update Joomla to version 4.1.2 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2022-21702",
+                        "https://developer.joomla.org/security-centre/860-20220301-core-csrf-in-user-management.html"
+                    ]
+                }
+            ]
+        }
+    },
+    "modules": {
+        "mod_stats": {
+            "3.1.0": [
+                {
+                    "id": "CVE-2013-3267",
+                    "name": "Joomla mod_stats <= 3.1.0 - Information Disclosure",
+                    "description": "The mod_stats module in Joomla versions up to 3.1.0 is vulnerable to an information disclosure vulnerability.",
+                    "severity": "medium",
+                    "impact": "An unauthenticated attacker can access sensitive server information.",
+                    "recommendation": "Update Joomla to version 3.1.1 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2013-3267",
+                        "https://developer.joomla.org/security-centre/509-20130401-core-information-disclosure.html"
+                    ]
+                }
+            ]
+        },
+        "mod_menu": {
+            "3.6.3": [
+                {
+                    "id": "CVE-2016-9081",
+                    "name": "Joomla mod_menu <= 3.6.3 - XSS",
+                    "description": "The mod_menu module in Joomla versions up to 3.6.3 is vulnerable to a cross-site scripting vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the menu is viewed.",
+                    "recommendation": "Update Joomla to version 3.6.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2016-9081",
+                        "https://developer.joomla.org/security-centre/661-20161002-core-xss-vulnerability.html"
+                    ]
+                }
+            ]
+        }
+    },
+    "templates": {
+        "beez3": {
+            "3.6.3": [
+                {
+                    "id": "CVE-2016-9836",
+                    "name": "Joomla beez3 <= 3.6.3 - XSS",
+                    "description": "The beez3 template in Joomla versions up to 3.6.3 is vulnerable to a cross-site scripting vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the template is viewed.",
+                    "recommendation": "Update Joomla to version 3.6.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2016-9836",
+                        "https://developer.joomla.org/security-centre/662-20161002-core-xss-vulnerability.html"
+                    ]
+                }
+            ]
+        },
+        "protostar": {
+            "3.6.3": [
+                {
+                    "id": "CVE-2016-9837",
+                    "name": "Joomla protostar <= 3.6.3 - XSS",
+                    "description": "The protostar template in Joomla versions up to 3.6.3 is vulnerable to a cross-site scripting vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the template is viewed.",
+                    "recommendation": "Update Joomla to version 3.6.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2016-9837",
+                        "https://developer.joomla.org/security-centre/662-20161002-core-xss-vulnerability.html"
+                    ]
+                }
+            ]
+        }
+    }
+}

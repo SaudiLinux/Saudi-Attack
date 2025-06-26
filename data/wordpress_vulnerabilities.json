@@ -1,0 +1,318 @@
+{
+    "core": {
+        "4.7.0": [
+            {
+                "id": "CVE-2017-5611",
+                "name": "WordPress 4.7.0-4.7.1 - Content Type Bypass",
+                "description": "WordPress 4.7.0 and 4.7.1 are vulnerable to a REST API endpoint content type bypass vulnerability.",
+                "severity": "high",
+                "impact": "An attacker can modify the content of any post or page on the site.",
+                "recommendation": "Update WordPress to version 4.7.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2017-5611",
+                    "https://wordpress.org/news/2017/01/wordpress-4-7-2-security-release/"
+                ]
+            }
+        ],
+        "4.7.1": [
+            {
+                "id": "CVE-2017-5611",
+                "name": "WordPress 4.7.0-4.7.1 - Content Type Bypass",
+                "description": "WordPress 4.7.0 and 4.7.1 are vulnerable to a REST API endpoint content type bypass vulnerability.",
+                "severity": "high",
+                "impact": "An attacker can modify the content of any post or page on the site.",
+                "recommendation": "Update WordPress to version 4.7.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2017-5611",
+                    "https://wordpress.org/news/2017/01/wordpress-4-7-2-security-release/"
+                ]
+            }
+        ],
+        "4.8.0": [
+            {
+                "id": "CVE-2017-14723",
+                "name": "WordPress 4.8.0-4.8.1 - Path Traversal in Unzip",
+                "description": "WordPress 4.8.0 and 4.8.1 are vulnerable to a path traversal vulnerability in the unzip functionality.",
+                "severity": "high",
+                "impact": "An attacker can potentially extract files to arbitrary locations, leading to code execution.",
+                "recommendation": "Update WordPress to version 4.8.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2017-14723",
+                    "https://wordpress.org/news/2017/09/wordpress-4-8-2-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "4.8.1": [
+            {
+                "id": "CVE-2017-14723",
+                "name": "WordPress 4.8.0-4.8.1 - Path Traversal in Unzip",
+                "description": "WordPress 4.8.0 and 4.8.1 are vulnerable to a path traversal vulnerability in the unzip functionality.",
+                "severity": "high",
+                "impact": "An attacker can potentially extract files to arbitrary locations, leading to code execution.",
+                "recommendation": "Update WordPress to version 4.8.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2017-14723",
+                    "https://wordpress.org/news/2017/09/wordpress-4-8-2-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "4.9.0": [
+            {
+                "id": "CVE-2018-6389",
+                "name": "WordPress <= 4.9.4 - DoS via load-scripts.php",
+                "description": "WordPress versions up to 4.9.4 are vulnerable to a denial of service attack via the load-scripts.php file.",
+                "severity": "medium",
+                "impact": "An attacker can cause high server load and potentially a denial of service by making requests to load-scripts.php with many script parameters.",
+                "recommendation": "Implement a WAF rule to block malicious requests to load-scripts.php or update to the latest WordPress version and implement additional protections.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2018-6389",
+                    "https://baraktawil.blogspot.com/2018/02/how-to-dos-29-of-world-wide-websites.html"
+                ]
+            }
+        ],
+        "5.0.0": [
+            {
+                "id": "CVE-2018-20148",
+                "name": "WordPress 5.0.0 - Authenticated File Delete",
+                "description": "WordPress 5.0.0 is vulnerable to an authenticated file deletion issue affecting PHP files.",
+                "severity": "high",
+                "impact": "An authenticated attacker with author privileges can delete certain files, potentially including PHP files.",
+                "recommendation": "Update WordPress to version 5.0.1 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2018-20148",
+                    "https://wordpress.org/news/2018/12/wordpress-5-0-1-security-release/"
+                ]
+            }
+        ],
+        "5.2.3": [
+            {
+                "id": "CVE-2019-17671",
+                "name": "WordPress <= 5.2.3 - Stored XSS in Customizer",
+                "description": "WordPress versions up to 5.2.3 are vulnerable to a stored XSS vulnerability in the Customizer.",
+                "severity": "medium",
+                "impact": "An authenticated attacker with contributor privileges can store malicious JavaScript that would execute when an admin accesses the Customizer.",
+                "recommendation": "Update WordPress to version 5.2.4 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2019-17671",
+                    "https://wordpress.org/news/2019/10/wordpress-5-2-4-security-release/"
+                ]
+            }
+        ],
+        "5.3.0": [
+            {
+                "id": "CVE-2019-17674",
+                "name": "WordPress <= 5.3.0 - Stored XSS in Block Editor",
+                "description": "WordPress versions up to 5.3.0 are vulnerable to a stored XSS vulnerability in the block editor.",
+                "severity": "medium",
+                "impact": "An authenticated attacker with contributor privileges can store malicious JavaScript that would execute when an admin edits the post.",
+                "recommendation": "Update WordPress to version 5.3.1 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2019-17674",
+                    "https://wordpress.org/news/2019/12/wordpress-5-3-1-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "5.4.1": [
+            {
+                "id": "CVE-2020-11026",
+                "name": "WordPress <= 5.4.1 - Authenticated XSS via Media Files",
+                "description": "WordPress versions up to 5.4.1 are vulnerable to a cross-site scripting vulnerability via media files.",
+                "severity": "medium",
+                "impact": "An authenticated attacker can upload specially crafted media files that could lead to cross-site scripting.",
+                "recommendation": "Update WordPress to version 5.4.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2020-11026",
+                    "https://wordpress.org/news/2020/06/wordpress-5-4-2-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "5.5.1": [
+            {
+                "id": "CVE-2020-28032",
+                "name": "WordPress <= 5.5.1 - Authenticated Stored XSS",
+                "description": "WordPress versions up to 5.5.1 are vulnerable to a stored XSS vulnerability.",
+                "severity": "medium",
+                "impact": "An authenticated attacker with contributor privileges can store malicious JavaScript that would execute when the post is viewed.",
+                "recommendation": "Update WordPress to version 5.5.2 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2020-28032",
+                    "https://wordpress.org/news/2020/10/wordpress-5-5-2-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "5.7.0": [
+            {
+                "id": "CVE-2021-29447",
+                "name": "WordPress 5.7.0 - XXE Vulnerability",
+                "description": "WordPress 5.7.0 is vulnerable to an XML External Entity (XXE) vulnerability in the media library.",
+                "severity": "high",
+                "impact": "An authenticated attacker can upload a specially crafted XML file that could lead to server-side request forgery or local file disclosure.",
+                "recommendation": "Update WordPress to version 5.7.1 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2021-29447",
+                    "https://wordpress.org/news/2021/04/wordpress-5-7-1-security-and-maintenance-release/"
+                ]
+            }
+        ],
+        "5.8.2": [
+            {
+                "id": "CVE-2022-21661",
+                "name": "WordPress <= 5.8.2 - SQL Injection",
+                "description": "WordPress versions up to 5.8.2 are vulnerable to a SQL injection vulnerability.",
+                "severity": "critical",
+                "impact": "An authenticated attacker with author privileges can inject arbitrary SQL queries, potentially leading to database access or modification.",
+                "recommendation": "Update WordPress to version 5.8.3 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2022-21661",
+                    "https://wordpress.org/news/2022/01/wordpress-5-8-3-security-release/"
+                ]
+            }
+        ],
+        "6.0.2": [
+            {
+                "id": "CVE-2022-3590",
+                "name": "WordPress <= 6.0.2 - XSS in Link Processing",
+                "description": "WordPress versions up to 6.0.2 are vulnerable to a cross-site scripting vulnerability in link processing.",
+                "severity": "medium",
+                "impact": "An authenticated attacker can inject malicious JavaScript via specially crafted links.",
+                "recommendation": "Update WordPress to version 6.0.3 or later.",
+                "references": [
+                    "https://nvd.nist.gov/vuln/detail/CVE-2022-3590",
+                    "https://wordpress.org/news/2022/10/wordpress-6-0-3-security-release/"
+                ]
+            }
+        ]
+    },
+    "plugins": {
+        "contact-form-7": {
+            "5.3.1": [
+                {
+                    "id": "CVE-2020-35489",
+                    "name": "Contact Form 7 <= 5.3.1 - Unrestricted File Upload",
+                    "description": "Contact Form 7 versions up to 5.3.1 are vulnerable to an unrestricted file upload vulnerability.",
+                    "severity": "high",
+                    "impact": "An attacker can upload arbitrary files, potentially including PHP files, which could lead to remote code execution.",
+                    "recommendation": "Update Contact Form 7 to version 5.3.2 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2020-35489",
+                        "https://contactform7.com/2020/12/17/contact-form-7-532/"
+                    ]
+                }
+            ]
+        },
+        "woocommerce": {
+            "5.5.0": [
+                {
+                    "id": "CVE-2021-32052",
+                    "name": "WooCommerce <= 5.5.0 - SQL Injection",
+                    "description": "WooCommerce versions up to 5.5.0 are vulnerable to a SQL injection vulnerability.",
+                    "severity": "critical",
+                    "impact": "An unauthenticated attacker can inject arbitrary SQL queries, potentially leading to database access or modification.",
+                    "recommendation": "Update WooCommerce to version 5.5.1 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-32052",
+                        "https://woocommerce.com/posts/critical-vulnerability-detected-in-woocommerce/"
+                    ]
+                }
+            ]
+        },
+        "elementor": {
+            "3.1.3": [
+                {
+                    "id": "CVE-2021-24175",
+                    "name": "Elementor <= 3.1.3 - Authenticated Stored XSS",
+                    "description": "Elementor versions up to 3.1.3 are vulnerable to a stored XSS vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the page is viewed.",
+                    "recommendation": "Update Elementor to version 3.1.4 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-24175",
+                        "https://elementor.com/blog/elementor-3-1-4-available-for-download/"
+                    ]
+                }
+            ]
+        },
+        "wp-super-cache": {
+            "1.7.1": [
+                {
+                    "id": "CVE-2021-24869",
+                    "name": "WP Super Cache <= 1.7.1 - Authenticated RCE",
+                    "description": "WP Super Cache versions up to 1.7.1 are vulnerable to a remote code execution vulnerability.",
+                    "severity": "high",
+                    "impact": "An authenticated attacker with admin privileges can execute arbitrary PHP code.",
+                    "recommendation": "Update WP Super Cache to version 1.7.2 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-24869",
+                        "https://wordpress.org/plugins/wp-super-cache/#developers"
+                    ]
+                }
+            ]
+        },
+        "wordfence": {
+            "7.5.2": [
+                {
+                    "id": "CVE-2021-34646",
+                    "name": "Wordfence <= 7.5.2 - Authentication Bypass",
+                    "description": "Wordfence versions up to 7.5.2 are vulnerable to an authentication bypass vulnerability.",
+                    "severity": "critical",
+                    "impact": "An unauthenticated attacker can bypass authentication and gain admin access to the site.",
+                    "recommendation": "Update Wordfence to version 7.5.3 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-34646",
+                        "https://www.wordfence.com/blog/2021/08/critical-authentication-bypass-vulnerability-patched-in-wordfence/"
+                    ]
+                }
+            ]
+        },
+        "yoast-seo": {
+            "16.6": [
+                {
+                    "id": "CVE-2021-25118",
+                    "name": "Yoast SEO <= 16.6 - Authenticated Stored XSS",
+                    "description": "Yoast SEO versions up to 16.6 are vulnerable to a stored XSS vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the page is viewed.",
+                    "recommendation": "Update Yoast SEO to version 16.7 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-25118",
+                        "https://yoast.com/yoast-seo-16-7/"
+                    ]
+                }
+            ]
+        }
+    },
+    "themes": {
+        "twentytwenty": {
+            "1.5": [
+                {
+                    "id": "CVE-2021-24499",
+                    "name": "Twenty Twenty <= 1.5 - Authenticated Stored XSS",
+                    "description": "Twenty Twenty theme versions up to 1.5 are vulnerable to a stored XSS vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the page is viewed.",
+                    "recommendation": "Update Twenty Twenty theme to version 1.6 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-24499",
+                        "https://wordpress.org/themes/twentytwenty/"
+                    ]
+                }
+            ]
+        },
+        "astra": {
+            "2.5.4": [
+                {
+                    "id": "CVE-2021-24207",
+                    "name": "Astra <= 2.5.4 - Authenticated Stored XSS",
+                    "description": "Astra theme versions up to 2.5.4 are vulnerable to a stored XSS vulnerability.",
+                    "severity": "medium",
+                    "impact": "An authenticated attacker can inject malicious JavaScript that would execute when the page is viewed.",
+                    "recommendation": "Update Astra theme to version 2.5.5 or later.",
+                    "references": [
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-24207",
+                        "https://wordpress.org/themes/astra/"
+                    ]
+                }
+            ]
+        }
+    }
+}

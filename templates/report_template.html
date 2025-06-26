@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ report_title }} - SaudiAttack</title>
+    <style>
+        :root {
+            --primary-color: #006b3c;
+            --secondary-color: #ffffff;
+            --accent-color: #149c68;
+            --text-color: #333333;
+            --background-color: #f5f5f5;
+            --border-color: #dddddd;
+            --critical-color: #d9534f;
+            --high-color: #f0ad4e;
+            --medium-color: #5bc0de;
+            --low-color: #5cb85c;
+            --info-color: #0275d8;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .logo {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .report-info {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-right: 5px solid var(--primary-color);
+        }
+        
+        .report-info-item {
+            flex: 1;
+            padding: 0 10px;
+        }
+        
+        .report-info-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        
+        .summary-section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .summary-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .summary-stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .stat-box {
+            flex: 1;
+            min-width: 150px;
+            margin: 10px;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .stat-box h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .stat-box .count {
+            font-size: 2em;
+            font-weight: bold;
+        }
+        
+        .stat-box.critical {
+            border-right: 5px solid var(--critical-color);
+        }
+        
+        .stat-box.high {
+            border-right: 5px solid var(--high-color);
+        }
+        
+        .stat-box.medium {
+            border-right: 5px solid var(--medium-color);
+        }
+        
+        .stat-box.low {
+            border-right: 5px solid var(--low-color);
+        }
+        
+        .stat-box.info {
+            border-right: 5px solid var(--info-color);
+        }
+        
+        .vulnerability-section {
+            margin: 30px 0;
+        }
+        
+        .vulnerability-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .vulnerability-category {
+            margin: 20px 0;
+        }
+        
+        .vulnerability-category h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .vulnerability-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .vulnerability-item.critical {
+            border-right: 5px solid var(--critical-color);
+        }
+        
+        .vulnerability-item.high {
+            border-right: 5px solid var(--high-color);
+        }
+        
+        .vulnerability-item.medium {
+            border-right: 5px solid var(--medium-color);
+        }
+        
+        .vulnerability-item.low {
+            border-right: 5px solid var(--low-color);
+        }
+        
+        .vulnerability-item.info {
+            border-right: 5px solid var(--info-color);
+        }
+        
+        .vulnerability-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .vulnerability-title {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        
+        .vulnerability-severity {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .severity-critical {
+            background-color: var(--critical-color);
+        }
+        
+        .severity-high {
+            background-color: var(--high-color);
+        }
+        
+        .severity-medium {
+            background-color: var(--medium-color);
+        }
+        
+        .severity-low {
+            background-color: var(--low-color);
+        }
+        
+        .severity-info {
+            background-color: var(--info-color);
+        }
+        
+        .vulnerability-details {
+            margin-top: 10px;
+        }
+        
+        .vulnerability-details p {
+            margin-bottom: 10px;
+        }
+        
+        .detail-item {
+            margin-bottom: 5px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        .system-info-section {
+            margin: 30px 0;
+        }
+        
+        .system-info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .system-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .system-info-table th,
+        .system-info-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .system-info-table th {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .system-info-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .port-info-section {
+            margin: 30px 0;
+        }
+        
+        .port-info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .port-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .port-info-table th,
+        .port-info-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .port-info-table th {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .port-info-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .web-info-section {
+            margin: 30px 0;
+        }
+        
+        .web-info-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .web-info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .web-info-table th,
+        .web-info-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .web-info-table th {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+        
+        .web-info-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .recommendations-section {
+            margin: 30px 0;
+        }
+        
+        .recommendations-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+        
+        .recommendation-item {
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border-right: 5px solid var(--accent-color);
+        }
+        
+        .recommendation-item h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            border-radius: 0 0 5px 5px;
+        }
+        
+        .footer-links {
+            margin-top: 10px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .report-info {
+                flex-direction: column;
+            }
+            
+            .report-info-item {
+                margin-bottom: 10px;
+            }
+            
+            .summary-stats {
+                flex-direction: column;
+            }
+            
+            .stat-box {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">SaudiAttack</div>
+            <h1>{{ report_title }}</h1>
+            <p>تقرير فحص الثغرات الأمنية</p>
+        </header>
+        
+        <div class="report-info">
+            <div class="report-info-item">
+                <h3>معلومات التقرير</h3>
+                <p><strong>تاريخ المسح:</strong> {{ scan_date }}</p>
+                <p><strong>وقت المسح:</strong> {{ scan_time }}</p>
+                <p><strong>مدة المسح:</strong> {{ scan_duration }}</p>
+            </div>
+            
+            <div class="report-info-item">
+                <h3>معلومات الهدف</h3>
+                <p><strong>الهدف:</strong> {{ target }}</p>
+                <p><strong>نوع الهدف:</strong> {{ target_type }}</p>
+                <p><strong>عنوان IP:</strong> {{ target_ip }}</p>
+            </div>
+            
+            <div class="report-info-item">
+                <h3>معلومات المسح</h3>
+                <p><strong>نوع المسح:</strong> {{ scan_type }}</p>
+                <p><strong>المنافذ المفحوصة:</strong> {{ scanned_ports }}</p>
+                <p><strong>عدد المواضيع:</strong> {{ threads }}</p>
+            </div>
+        </div>
+        
+        <div class="summary-section">
+            <h2>ملخص النتائج</h2>
+            <p>{{ summary_text }}</p>
+            
+            <div class="summary-stats">
+                <div class="stat-box critical">
+                    <h3>حرجة</h3>
+                    <div class="count">{{ critical_count }}</div>
+                </div>
+                
+                <div class="stat-box high">
+                    <h3>عالية</h3>
+                    <div class="count">{{ high_count }}</div>
+                </div>
+                
+                <div class="stat-box medium">
+                    <h3>متوسطة</h3>
+                    <div class="count">{{ medium_count }}</div>
+                </div>
+                
+                <div class="stat-box low">
+                    <h3>منخفضة</h3>
+                    <div class="count">{{ low_count }}</div>
+                </div>
+                
+                <div class="stat-box info">
+                    <h3>معلومات</h3>
+                    <div class="count">{{ info_count }}</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="vulnerability-section">
+            <h2>الثغرات المكتشفة</h2>
+            
+            {% if vulnerabilities.critical %}
+            <div class="vulnerability-category">
+                <h3>ثغرات حرجة</h3>
+                
+                {% for vuln in vulnerabilities.critical %}
+                <div class="vulnerability-item critical">
+                    <div class="vulnerability-header">
+                        <div class="vulnerability-title">{{ vuln.name }}</div>
+                        <div class="vulnerability-severity severity-critical">حرجة</div>
+                    </div>
+                    
+                    <div class="vulnerability-details">
+                        <p>{{ vuln.description }}</p>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">الموقع:</span> {{ vuln.location }}
+                        </div>
+                        
+                        {% if vuln.evidence %}
+                        <div class="detail-item">
+                            <span class="detail-label">الدليل:</span> {{ vuln.evidence }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التأثير:</span> {{ vuln.impact }}
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التوصية:</span> {{ vuln.recommendation }}
+                        </div>
+                        
+                        {% if vuln.references %}
+                        <div class="detail-item">
+                            <span class="detail-label">المراجع:</span>
+                            <ul>
+                                {% for ref in vuln.references %}
+                                <li>{{ ref }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if vulnerabilities.high %}
+            <div class="vulnerability-category">
+                <h3>ثغرات عالية</h3>
+                
+                {% for vuln in vulnerabilities.high %}
+                <div class="vulnerability-item high">
+                    <div class="vulnerability-header">
+                        <div class="vulnerability-title">{{ vuln.name }}</div>
+                        <div class="vulnerability-severity severity-high">عالية</div>
+                    </div>
+                    
+                    <div class="vulnerability-details">
+                        <p>{{ vuln.description }}</p>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">الموقع:</span> {{ vuln.location }}
+                        </div>
+                        
+                        {% if vuln.evidence %}
+                        <div class="detail-item">
+                            <span class="detail-label">الدليل:</span> {{ vuln.evidence }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التأثير:</span> {{ vuln.impact }}
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التوصية:</span> {{ vuln.recommendation }}
+                        </div>
+                        
+                        {% if vuln.references %}
+                        <div class="detail-item">
+                            <span class="detail-label">المراجع:</span>
+                            <ul>
+                                {% for ref in vuln.references %}
+                                <li>{{ ref }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if vulnerabilities.medium %}
+            <div class="vulnerability-category">
+                <h3>ثغرات متوسطة</h3>
+                
+                {% for vuln in vulnerabilities.medium %}
+                <div class="vulnerability-item medium">
+                    <div class="vulnerability-header">
+                        <div class="vulnerability-title">{{ vuln.name }}</div>
+                        <div class="vulnerability-severity severity-medium">متوسطة</div>
+                    </div>
+                    
+                    <div class="vulnerability-details">
+                        <p>{{ vuln.description }}</p>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">الموقع:</span> {{ vuln.location }}
+                        </div>
+                        
+                        {% if vuln.evidence %}
+                        <div class="detail-item">
+                            <span class="detail-label">الدليل:</span> {{ vuln.evidence }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التأثير:</span> {{ vuln.impact }}
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التوصية:</span> {{ vuln.recommendation }}
+                        </div>
+                        
+                        {% if vuln.references %}
+                        <div class="detail-item">
+                            <span class="detail-label">المراجع:</span>
+                            <ul>
+                                {% for ref in vuln.references %}
+                                <li>{{ ref }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if vulnerabilities.low %}
+            <div class="vulnerability-category">
+                <h3>ثغرات منخفضة</h3>
+                
+                {% for vuln in vulnerabilities.low %}
+                <div class="vulnerability-item low">
+                    <div class="vulnerability-header">
+                        <div class="vulnerability-title">{{ vuln.name }}</div>
+                        <div class="vulnerability-severity severity-low">منخفضة</div>
+                    </div>
+                    
+                    <div class="vulnerability-details">
+                        <p>{{ vuln.description }}</p>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">الموقع:</span> {{ vuln.location }}
+                        </div>
+                        
+                        {% if vuln.evidence %}
+                        <div class="detail-item">
+                            <span class="detail-label">الدليل:</span> {{ vuln.evidence }}
+                        </div>
+                        {% endif %}
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التأثير:</span> {{ vuln.impact }}
+                        </div>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">التوصية:</span> {{ vuln.recommendation }}
+                        </div>
+                        
+                        {% if vuln.references %}
+                        <div class="detail-item">
+                            <span class="detail-label">المراجع:</span>
+                            <ul>
+                                {% for ref in vuln.references %}
+                                <li>{{ ref }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            {% if vulnerabilities.info %}
+            <div class="vulnerability-category">
+                <h3>معلومات</h3>
+                
+                {% for vuln in vulnerabilities.info %}
+                <div class="vulnerability-item info">
+                    <div class="vulnerability-header">
+                        <div class="vulnerability-title">{{ vuln.name }}</div>
+                        <div class="vulnerability-severity severity-info">معلومات</div>
+                    </div>
+                    
+                    <div class="vulnerability-details">
+                        <p>{{ vuln.description }}</p>
+                        
+                        <div class="detail-item">
+                            <span class="detail-label">الموقع:</span> {{ vuln.location }}
+                        </div>
+                        
+                        {% if vuln.evidence %}
+                        <div class="detail-item">
+                            <span class="detail-label">الدليل:</span> {{ vuln.evidence }}
+                        </div>
+                        {% endif %}
+                        
+                        {% if vuln.impact %}
+                        <div class="detail-item">
+                            <span class="detail-label">التأثير:</span> {{ vuln.impact }}
+                        </div>
+                        {% endif %}
+                        
+                        {% if vuln.recommendation %}
+                        <div class="detail-item">
+                            <span class="detail-label">التوصية:</span> {{ vuln.recommendation }}
+                        </div>
+                        {% endif %}
+                        
+                        {% if vuln.references %}
+                        <div class="detail-item">
+                            <span class="detail-label">المراجع:</span>
+                            <ul>
+                                {% for ref in vuln.references %}
+                                <li>{{ ref }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="system-info-section">
+            <h2>معلومات النظام</h2>
+            
+            <table class="system-info-table">
+                <tr>
+                    <th>المعلومة</th>
+                    <th>القيمة</th>
+                </tr>
+                
+                {% for info in system_info %}
+                <tr>
+                    <td>{{ info.name }}</td>
+                    <td>{{ info.value }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+        {% if port_info %}
+        <div class="port-info-section">
+            <h2>معلومات المنافذ</h2>
+            
+            <table class="port-info-table">
+                <tr>
+                    <th>المنفذ</th>
+                    <th>البروتوكول</th>
+                    <th>الحالة</th>
+                    <th>الخدمة</th>
+                    <th>الإصدار</th>
+                </tr>
+                
+                {% for port in port_info %}
+                <tr>
+                    <td>{{ port.port }}</td>
+                    <td>{{ port.protocol }}</td>
+                    <td>{{ port.state }}</td>
+                    <td>{{ port.service }}</td>
+                    <td>{{ port.version }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        
+        {% if web_info %}
+        <div class="web-info-section">
+            <h2>معلومات خادم الويب</h2>
+            
+            <table class="web-info-table">
+                <tr>
+                    <th>المعلومة</th>
+                    <th>القيمة</th>
+                </tr>
+                
+                {% for info in web_info %}
+                <tr>
+                    <td>{{ info.name }}</td>
+                    <td>{{ info.value }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %}
+        
+        <div class="recommendations-section">
+            <h2>التوصيات</h2>
+            
+            {% for rec in recommendations %}
+            <div class="recommendation-item">
+                <h3>{{ rec.title }}</h3>
+                <p>{{ rec.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <footer>
+            <p>تم إنشاء هذا التقرير بواسطة أداة SaudiAttack</p>
+            <p>المطور: Saudi Linux</p>
+            <p>البريد الإلكتروني: SaudiLinux7@gmail.com</p>
+            <div class="footer-links">
+                <a href="https://github.com/SaudiLinux/SaudiAttack" target="_blank">GitHub</a>
+                <a href="https://saudilinux.com" target="_blank">الموقع الرسمي</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

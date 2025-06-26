@@ -1,0 +1,209 @@
+==========================================================================
+                        تقرير فحص الثغرات الأمنية
+                             {{ report_title }}
+==========================================================================
+
+معلومات التقرير:
+----------------
+تاريخ المسح: {{ scan_date }}
+وقت المسح: {{ scan_time }}
+مدة المسح: {{ scan_duration }}
+
+معلومات الهدف:
+--------------
+الهدف: {{ target }}
+نوع الهدف: {{ target_type }}
+عنوان IP: {{ target_ip }}
+
+معلومات المسح:
+--------------
+نوع المسح: {{ scan_type }}
+المنافذ المفحوصة: {{ scanned_ports }}
+عدد المواضيع: {{ threads }}
+
+ملخص النتائج:
+-------------
+{{ summary_text }}
+
+إحصائيات الثغرات:
+----------------
+حرجة: {{ critical_count }}
+عالية: {{ high_count }}
+متوسطة: {{ medium_count }}
+منخفضة: {{ low_count }}
+معلومات: {{ info_count }}
+
+==========================================================================
+                            الثغرات المكتشفة
+==========================================================================
+
+{% if vulnerabilities.critical %}
+----------------------
+    الثغرات الحرجة
+----------------------
+
+{% for vuln in vulnerabilities.critical %}
+{{ vuln.name }}
+{{ '-' * vuln.name|length }}
+
+الوصف: {{ vuln.description }}
+الموقع: {{ vuln.location }}
+{% if vuln.evidence %}الدليل: {{ vuln.evidence }}{% endif %}
+التأثير: {{ vuln.impact }}
+التوصية: {{ vuln.recommendation }}
+{% if vuln.references %}
+المراجع:
+{% for ref in vuln.references %}
+  - {{ ref }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if vulnerabilities.high %}
+----------------------
+    الثغرات العالية
+----------------------
+
+{% for vuln in vulnerabilities.high %}
+{{ vuln.name }}
+{{ '-' * vuln.name|length }}
+
+الوصف: {{ vuln.description }}
+الموقع: {{ vuln.location }}
+{% if vuln.evidence %}الدليل: {{ vuln.evidence }}{% endif %}
+التأثير: {{ vuln.impact }}
+التوصية: {{ vuln.recommendation }}
+{% if vuln.references %}
+المراجع:
+{% for ref in vuln.references %}
+  - {{ ref }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if vulnerabilities.medium %}
+----------------------
+   الثغرات المتوسطة
+----------------------
+
+{% for vuln in vulnerabilities.medium %}
+{{ vuln.name }}
+{{ '-' * vuln.name|length }}
+
+الوصف: {{ vuln.description }}
+الموقع: {{ vuln.location }}
+{% if vuln.evidence %}الدليل: {{ vuln.evidence }}{% endif %}
+التأثير: {{ vuln.impact }}
+التوصية: {{ vuln.recommendation }}
+{% if vuln.references %}
+المراجع:
+{% for ref in vuln.references %}
+  - {{ ref }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if vulnerabilities.low %}
+----------------------
+   الثغرات المنخفضة
+----------------------
+
+{% for vuln in vulnerabilities.low %}
+{{ vuln.name }}
+{{ '-' * vuln.name|length }}
+
+الوصف: {{ vuln.description }}
+الموقع: {{ vuln.location }}
+{% if vuln.evidence %}الدليل: {{ vuln.evidence }}{% endif %}
+التأثير: {{ vuln.impact }}
+التوصية: {{ vuln.recommendation }}
+{% if vuln.references %}
+المراجع:
+{% for ref in vuln.references %}
+  - {{ ref }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+{% if vulnerabilities.info %}
+----------------------
+      المعلومات
+----------------------
+
+{% for vuln in vulnerabilities.info %}
+{{ vuln.name }}
+{{ '-' * vuln.name|length }}
+
+الوصف: {{ vuln.description }}
+الموقع: {{ vuln.location }}
+{% if vuln.evidence %}الدليل: {{ vuln.evidence }}{% endif %}
+{% if vuln.impact %}التأثير: {{ vuln.impact }}{% endif %}
+{% if vuln.recommendation %}التوصية: {{ vuln.recommendation }}{% endif %}
+{% if vuln.references %}
+المراجع:
+{% for ref in vuln.references %}
+  - {{ ref }}
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+{% endif %}
+
+==========================================================================
+                            معلومات النظام
+==========================================================================
+
+{% for info in system_info %}
+{{ info.name }}: {{ info.value }}
+{% endfor %}
+
+{% if port_info %}
+==========================================================================
+                            معلومات المنافذ
+==========================================================================
+
+{% for port in port_info %}
+المنفذ: {{ port.port }}
+البروتوكول: {{ port.protocol }}
+الحالة: {{ port.state }}
+الخدمة: {{ port.service }}
+الإصدار: {{ port.version }}
+{% if not loop.last %}--------------------------------------------------------------------------{% endif %}
+{% endfor %}
+{% endif %}
+
+{% if web_info %}
+==========================================================================
+                          معلومات خادم الويب
+==========================================================================
+
+{% for info in web_info %}
+{{ info.name }}: {{ info.value }}
+{% endfor %}
+{% endif %}
+
+==========================================================================
+                              التوصيات
+==========================================================================
+
+{% for rec in recommendations %}
+{{ rec.title }}
+{{ '-' * rec.title|length }}
+
+{{ rec.description }}
+
+{% endfor %}
+
+==========================================================================
+
+تم إنشاء هذا التقرير بواسطة أداة SaudiAttack
+المطور: Saudi Linux
+البريد الإلكتروني: SaudiLinux7@gmail.com

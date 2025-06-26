@@ -1,0 +1,98 @@
+# ملف تكوين SaudiAttack
+
+# إعدادات عامة
+general:
+  threads: 10                      # عدد الخيوط المتزامنة
+  timeout: 30                      # مهلة الاتصال بالثواني
+  user_agent: "SaudiAttack/1.0.0"  # وكيل المستخدم
+  output_dir: "./reports"          # مجلد التقارير
+
+# إعدادات المسح
+scan:
+  # المنافذ الافتراضية للمسح
+  ports:
+    general: [21, 22, 23, 25, 53, 80, 110, 111, 135, 139, 143, 443, 445, 993, 995, 1723, 3306, 3389, 5900, 8080]
+    web: [80, 443, 8080, 8443]
+    wordpress: [80, 443]
+    joomla: [80, 443]
+  
+  # نصوص Nmap للاستخدام
+  nmap_scripts:
+    - "default"
+    - "vuln"
+    - "auth"
+    - "discovery"
+
+# إعدادات خادم الويب
+web:
+  # المسارات للتحقق من وجودها
+  paths_to_check:
+    - "/admin"
+    - "/login"
+    - "/wp-admin"
+    - "/administrator"
+    - "/phpmyadmin"
+    - "/server-status"
+    - "/robots.txt"
+    - "/.git/HEAD"
+    - "/.env"
+    - "/backup"
+    - "/config"
+  
+  # رؤوس الأمان للتحقق منها
+  security_headers:
+    - "Content-Security-Policy"
+    - "X-XSS-Protection"
+    - "X-Content-Type-Options"
+    - "X-Frame-Options"
+    - "Strict-Transport-Security"
+    - "Referrer-Policy"
+    - "Permissions-Policy"
+
+# إعدادات ووردبريس
+wordpress:
+  # المسارات للكشف عن ووردبريس
+  detection_paths:
+    - "/wp-login.php"
+    - "/wp-admin/"
+    - "/wp-content/"
+    - "/wp-includes/"
+    - "/xmlrpc.php"
+    - "/wp-json/"
+
+# إعدادات جوملا
+joomla:
+  # المسارات للكشف عن جوملا
+  detection_paths:
+    - "/administrator/"
+    - "/components/"
+    - "/modules/"
+    - "/templates/"
+    - "/language/"
+    - "/cache/"
+    - "/media/"
+    - "/configuration.php"
+
+# إعدادات التقارير
+report:
+  # تنسيقات التقارير المتاحة
+  formats:
+    - "html"
+    - "json"
+    - "txt"
+    - "md"
+    - "yaml"
+  
+  # تنسيق التقرير الافتراضي
+  default_format: "html"
+  
+  # مستويات الخطورة
+  severity_levels:
+    - "critical"
+    - "high"
+    - "medium"
+    - "low"
+    - "info"
+  
+  # مجلد قوالب التقارير
+  template_dir: "./templates"

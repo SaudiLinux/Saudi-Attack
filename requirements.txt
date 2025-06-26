@@ -1,0 +1,22 @@
+# Core dependencies
+python-nmap>=0.7.1
+requests>=2.28.1
+beautifulsoup4>=4.11.1
+colorama>=0.4.6
+rich>=12.6.0
+tqdm>=4.64.1
+argparse>=1.4.0
+pyyaml>=6.0
+
+# Web scanning dependencies
+wpscanner>=0.1.1
+xml-parser>=0.1.0
+ssl-checker>=0.1.0
+
+# Report generation
+jinja2>=3.1.2
+markdown>=3.4.1
+
+# Optional dependencies
+scapy>=2.4.5
+pycryptodome>=3.15.0

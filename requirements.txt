@@ -9,7 +9,7 @@ argparse>=1.4.0
 pyyaml>=6.0
 
 # Web scanning dependencies
-xml-parser>=0.1.0
+lxml>=4.9.0
 ssl-checker>=0.1.0
 
 # Report generation

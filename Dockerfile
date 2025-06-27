@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.13-slim
 
 LABEL maintainer="Saudi Linux <SaudiLinux7@gmail.com>"
 LABEL description="SaudiAttack - أداة لإدارة سطح الهجوم وفحص الثغرات الأمنية"
